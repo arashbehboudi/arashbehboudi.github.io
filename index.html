@@ -21,7 +21,7 @@
 
         body {
             font-family: 'Vazir', Arial, sans-serif;
-            font-weight:normal;
+            font-weight:bold;
             background: #f5f5f5;
             padding: 20px;
             line-height: 1.8;
@@ -64,17 +64,17 @@
         }
 
         .section {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            /* background: white;
+            border-radius: 10px; */
+            /* padding: 5px; */
+            /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
         }
 
       
         .section-title {
             background: #193d8c;
             color: white;
-            padding: 15px;
+            padding: 5px;
             border-radius: 8px;
             text-align: center;
             font-size: 1.3em;
@@ -90,9 +90,57 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
+        
+        .tile-blue {
+             background: #193d8c;
+             border-color: #193d8c;
+             color:white;
+        }
+
+        .tile-blue:hover {
+             background: white;
+             border-color: #193d8c;
+             color:#000;
+        }
+
+        .tile-light-blue{
+            background: #3498db;
+            border-color: #3498db;
+             color:white;
+        }
+
+        .tile-light-blue:hover{
+            background: white;
+            border-color: #3498db;
+             color:black;
+        }
+
+        .tile-green{
+            background: #082aeb;
+            border-color: #082aeb;
+             color:white;
+        }
+
+        .tile-green:hover{
+            background: white;
+            border-color: #082aeb;
+             color:black;
+        }
+
+        .tile-purple{
+            background: #14b8c4;
+            border-color: #14b8c4;
+             color:white;
+        }
+
+        .tile-purple:hover{
+            background: white;
+            border-color: #14b8c4;
+             color:black;
+        }
 
         .tile {
-            background: white;
+            /* background: white; */
             border: 2px solid #193d8c;
             border-radius: 8px;
             padding: 15px;
@@ -101,21 +149,28 @@
             transition: all 0.3s ease;
         }
 
-        .tile:hover {
-            background: white;
-            border-color: #95a5a6;
-            transform: translateX(-5px);
-        }
+        /* .tile:hover {
+            background: #193d8c;
+            color: white;
+            border-color: #193d8c;
+            transform: translateX(-3px);
+        } */
 
         .tile-title {
             
-            color: #2c3e50;
+            color: #000;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+        .tile-title:hover {
+            
+            color: #000;
             margin-bottom: 8px;
             font-size: 1em;
         }
 
         .tile-content {
-            color: #555;
+            color: #000;
             font-size: 0.95em;
         }
 
@@ -145,8 +200,9 @@
         }
 
         .sub-tile {
-            background: white;
-            border: 2px solid #3498db;
+            background: #193d8c;
+            border: 2px solid #193d8c;
+            color: white;
             border-radius: 6px;
             padding: 12px;
             cursor: pointer;
@@ -155,8 +211,39 @@
             min-width: 150px;
         }
 
+        .sub-tile-blue {
+            background: #193d8c;
+            border: 2px solid #193d8c;
+            color: white;
+            
+        }
+
+        .sub-tile-light-blue {
+             background: #3498db;
+            border-color: #3498db;
+             color:white;
+            
+        }
+
+        .sub-tile-green {
+            background: #082aeb;
+            border-color: #082aeb;
+             color:white;
+            
+        }
+
+        .sub-tile-purple {
+            background: #14b8c4;
+            border-color: #14b8c4;
+             color:white;
+            
+        }
+
+
+
         .sub-tile:hover {
             background: #ebf5fb;
+            color: #193d8c;
             transform: translateX(-3px);
         }
 
@@ -168,6 +255,7 @@
 
         .expanded {
             background: white !important;
+            color: #000 !important;
         }
 
         .footer {
@@ -369,15 +457,15 @@
             <img src="rahvar.svg" alt="Logo" class="header-logo" />
             <div class="header-text">
                 <h1 class="header-title">علل فنی تصادف</h1>
-                <P class="header-subtitle">پلیس راهور تهران بزرگ</P>
-                <p class="header-subtitle">اداره تصادفات و مهندسی ترافیک </p>
+                <h3 class="header-subtitle">پلیس راهور تهران بزرگ</h3>
+                <h3 class="header-subtitle">اداره تصادفات و مهندسی ترافیک </h3>
             </div>
         </div>
     </header>
         <!-- Right Section -->
         <div class="section" onclick="toggleSection('original-section')">
-            <div class="tile " >
-                علل اولیه قبلی
+            <div class="tile tile-blue " >
+                علل اولیه(قبلی)
             </div>
             <div id="original-section">
                 <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 15px;">
@@ -385,12 +473,12 @@
                         <div class="tile-title">دولت (قوه مجریه)</div>
                         <!-- <div class="tile-content">شامل وزارت راه، شهرسازی، کشور و سایر نهادها</div> -->
                         <div id="govt-tile" class="sub-tiles">
-                            <div class="sub-tile" >قصور مسئولين اداره راه يا شهردارى در اصلاح ورفع نقاط حادثه خيز</div>
-                            <div class="sub-tile" >ضعف سيستم آموزش و آزمايش رانندگی</div>
-                            <div class="sub-tile" >عدم پیش بینی تدابير كاربردى در جهت حفظ ونكهداري وترسيم راه و علائم راهنمایی</div>
-                            <div class="sub-tile" >ضعف فرهنگ سازى</div>
-                            <div class="sub-tile" >ضعف سیستم امداد و نجات</div>
-                            <div class="sub-tile" >قضور نیروهای پلیس در ایفای مطلوب وظایف محوله</div>
+                            <div class="sub-tile sub-tile-blue" >قصور مسئولين اداره راه يا شهردارى در اصلاح ورفع نقاط حادثه خيز</div>
+                            <div class="sub-tile sub-tile-blue" >ضعف سيستم آموزش و آزمايش رانندگی</div>
+                            <div class="sub-tile sub-tile-blue" >عدم پیش بینی تدابير كاربردى در جهت حفظ ونكهداري وترسيم راه و علائم راهنمایی</div>
+                            <div class="sub-tile sub-tile-blue" >ضعف فرهنگ سازى</div>
+                            <div class="sub-tile sub-tile-blue" >ضعف سیستم امداد و نجات</div>
+                            <div class="sub-tile sub-tile-blue" >قضور نیروهای پلیس در ایفای مطلوب وظایف محوله</div>
                         </div>
                     </div>
 
@@ -398,9 +486,9 @@
                         <div class="tile-title">خصوصیات فردی کاربران ترافیکی</div>
                         <!-- <div class="tile-content">شرایط خاص و استثنایی</div> -->
                         <div id="special-features-tile" class="sub-tiles">
-                            <div class="sub-tile" >تمايل و علاقمندى به قانون شكنى وقانون گريزى</div>
-                            <div class="sub-tile" >عدم احساس مسئوليت فردى</div>
-                            <div class="sub-tile" >عدم احساس مسئوليت اجتماعى</div>
+                            <div class="sub-tile sub-tile-blue" >تمايل و علاقمندى به قانون شكنى وقانون گريزى</div>
+                            <div class="sub-tile sub-tile-blue" >عدم احساس مسئوليت فردى</div>
+                            <div class="sub-tile sub-tile-blue" >عدم احساس مسئوليت اجتماعى</div>
                         </div>
                     </div>
 
@@ -410,10 +498,10 @@
                         <div class="tile-title">قوه مقننه</div>
                         <!-- <div class="tile-content">تدوین قوانین و مقررات ترافیکی</div> -->
                         <div id="category-tile" class="sub-tiles">
-                            <div class="sub-tile" >عدم تصويب قوانين لازم براى تقويت بعد بازدارندگی مجازاتهاى جرائم و تخلفات راتندگى</div>
-                            <div class="sub-tile" >عدم تصويب بودجه واعتبار لازم براى ايجاد زير ساخت هاى حمل و نقلى</div>
-                            <div class="sub-tile" >عدم تصويب بودجه و اعتبار لازم براى رفع نقاط حادثه خيز</div>
-                            <div class="sub-tile" >عدم وجود قوانين منسجم، كارامد وجامع درامور ترافيكى</div>
+                            <div class="sub-tile sub-tile-blue" >عدم تصويب قوانين لازم براى تقويت بعد بازدارندگی مجازاتهاى جرائم و تخلفات راتندگى</div>
+                            <div class="sub-tile sub-tile-blue" >عدم تصويب بودجه واعتبار لازم براى ايجاد زير ساخت هاى حمل و نقلى</div>
+                            <div class="sub-tile sub-tile-blue" >عدم تصويب بودجه و اعتبار لازم براى رفع نقاط حادثه خيز</div>
+                            <div class="sub-tile sub-tile-blue" >عدم وجود قوانين منسجم، كارامد وجامع درامور ترافيكى</div>
                         </div>
                     </div>
 
@@ -423,9 +511,9 @@
                         <div class="tile-title">قوه قضائیه</div>
                         <!-- <div class="tile-content">نظارت و اجرای قوانین</div> -->
                         <div id="special-tile" class="sub-tiles">
-                            <div class="sub-tile" >عدم توجه به جنبه بازدارندگى مجازاتهاى جرائم رانندگى در صدور احكام مربوطه</div>
-                            <div class="sub-tile" >عدم وجود محاكم فضايى تخصصى براى رسيدگی به جرائم راتندگى</div>
-                            <div class="sub-tile">عدم اعمال دقيق مجازات هاى مقررى درباره مجرمين مرتكب جرائم رانندگى</div>
+                            <div class="sub-tile sub-tile-blue" >عدم توجه به جنبه بازدارندگى مجازاتهاى جرائم رانندگى در صدور احكام مربوطه</div>
+                            <div class="sub-tile sub-tile-blue" >عدم وجود محاكم فضايى تخصصى براى رسيدگی به جرائم راتندگى</div>
+                            <div class="sub-tile sub-tile-blue">عدم اعمال دقيق مجازات هاى مقررى درباره مجرمين مرتكب جرائم رانندگى</div>
                         </div>
                     </div>
 
@@ -436,15 +524,15 @@
 
         <!-- Left Section -->
         <div class="section">
-            <div class="tile " onclick="toggleSection('waste-section')">
-                علل واسط (میانی)
+            <div class="tile tile-light-blue" onclick="toggleSection('waste-section')">
+                علل واسط 
             </div>
             <div id="waste-section">
                 <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 15px;">
                     <div class="tile " onclick="toggleSubTiles('road-tile')" style="flex: 1; min-width: 250px;">
                         <div class="tile-title">بررسی وضعیت راه و محیط</div>
                         <div class="sub-tiles" id="road-tile">
-                            <div class="sub-tile" onclick="openModal('سطح راه', `<ul>
+                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('سطح راه', `<ul>
                             <li>لغزندگی راه</li>
                             <li>شیار</li>
                             <li>حفره</li>
@@ -453,7 +541,7 @@
                                 <strong>سطح راه</strong>
                                 
                             </div>
-                            <div class="sub-tile" onclick="openModal('علائم', `<ul>
+                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('علائم', `<ul>
                             <li>پوشیدگی علائم</li>
                             <li>پوشیدگی و شکستگی علائم</li>
                             <li>تاخوردگی علائم</li>
@@ -463,7 +551,7 @@
                                 <strong>علائم</strong>
                                 
                             </div>
-                            <div class="sub-tile"  onclick="openModal('موانع دید', `<ul>
+                            <div class="sub-tile sub-tile-light-blue"  onclick="openModal('موانع دید', `<ul>
                             <li>مانع دید بوسیله سربالائی</li>
                             <li>پیچ با زاویه بی روح</li>
                             <li>تقاطع با زاویه بی روح</li>
@@ -473,7 +561,7 @@
                                 <strong>موانع دید</strong>
                                 
                             </div>
-                            <div class="sub-tile" onclick="openModal('نور',`<ul>
+                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('نور',`<ul>
                             <li>اشعه آفتاب</li>
                             <li>نور منعکس از سطح راه یا وسایل نقلیه</li>
                             <li>نور منعکس از شیشه یا آب (سراب)</li>
@@ -487,7 +575,7 @@
                                     <div class="sub-tile" onclick="openModal('ساختمان', 'ساختمان‌ها و تأسیسات اطراف جاده که بر ایمنی ترافیک تأثیر می‌گذارند')">ساختمان</div>
                                 </div> -->
                             </div>
-                            <div class="sub-tile" onclick="openModal('ساختمان جاده', `<ul>
+                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('ساختمان جاده', `<ul>
                             <li>کم بودن شیب عرضی راه</li>
                             <li>فقدان شانه خاکی مناسب</li>
                             <li>اختلاف سطح آسفالت با شانه خاکی</li>
@@ -502,7 +590,7 @@
                         <div class="tile-title">بررسی وضع راننده و عابر</div>
                         <!-- <div class="tile-content">بررسی وضع راننده و عابر</div> -->
                         <div id="tech-tile" class="sub-tiles">
-                            <div class="sub-tile" onclick="openModal('نواقص جسمانی', `<ul>
+                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('نواقص جسمانی', `<ul>
                             <li>  عدم آشنايى به وسيله نقليه</li>
                             <li> عدم آشنايى به راه</li>
                             <li> عدم آشنايى به مقررات</li>
@@ -512,7 +600,7 @@
                             <li>عدم مهارت در تشخيص سهم عبور ساير وسائل نقليه</li>
                             <li>عدم توجه به كسب عادات مفيد در رانندگى</li>
                         </ul>`)">نواقص جسمانی</div>
-                            <div class="sub-tile" onclick="openModal('خصوصیات فنی', `<ul>
+                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('خصوصیات فنی', `<ul>
                             <li>  نقص بينايى</li>
                             <li> نقص شنوایی</li>
                             <li> نقص در هماهنگی بدن</li>
@@ -521,7 +609,7 @@
                             <li>فقدان دست و پا يا غير قابل استفاده بودن آنها</li>
                             <li>ضعف نیروی بدنی</li>
                         </ul>`)">خصوصیات فنی</div>
-                            <div class="sub-tile" onclick="openModal('خصوصیات اخلاقی',`<ul>
+                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('خصوصیات اخلاقی',`<ul>
                             <li>بی صبرى، عجله و شتاب بى مورد</li>
                             <li>شيرينكارى</li>
                             <li>بى اعتنايى، تنبلى، بى تفاوتى</li>
@@ -530,7 +618,7 @@
                             <li>عدم توجه به جلو و اطراف </li>
                             
                         </ul>`)">خصوصیات اخلاقی</div>
-                            <div class="sub-tile" onclick="openModal('خلاصی خصوصیات غیر عادی و غیرطبیعی', `<ul>
+                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('خلاصی خصوصیات غیر عادی و غیرطبیعی', `<ul>
                             <li>استعمال مشروبات الکلی، موادمخدر و دارو</li>
                             <li>بیماریهای ناگهانی</li>
                             <li>خستگی و خواب آلودگی</li>
@@ -545,14 +633,14 @@
                         <div class="tile-title">بررسی وضع وسایل نقلیه</div>
                         <!-- <div class="tile-content">مشخصات فنی وسیله نقلیه</div> -->
                         <div id="moral-tile" class="sub-tiles">
-                            <div class="sub-tile" onclick="openModal('نواقص فنی', `<ul>
+                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('نواقص فنی', `<ul>
                             <li>صاف بودن لاستیک</li>
                             <li>نقص سیستم روشنایی</li>
                             <li>خلاصی فرمان</li>
                             <li>و...</li>
                             
                         </ul>`)">نواقص فنی</div>
-                            <div class="sub-tile" onclick="openModal('نواقص غیرفنی', `<ul>
+                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('نواقص غیرفنی', `<ul>
                             <li>بيش از اندازه بزرگ بودن وسيله نقليه</li>
                             <li>بيش از اندازه بزرگ بودن محموله</li>
                             <li>زاويه بيروح حاصله از ابعاد بزرگ محموله </li>
@@ -594,15 +682,15 @@
     
         <!-- علل اصلی Section -->
         <div class="section">
-            <div class="tile "  onclick="toggleSection('main-cause-section')">
-                علل اصلی
+            <div class="tile tile-green"  onclick="toggleSection('main-cause-section')">
+                علل مستقیم
             </div>
             <div id="main-cause-section">
                 <div style="display: flex; gap: 15px; flex-wrap: wrap;">
                     <div class="tile " onclick="toggleSubTiles('negligence-tile')" style="flex: 1; min-width: 250px;">
                         <div class="tile-title">تخلف از مقررات</div>
                         <!-- <div class="tile-content">عدم رعایت احتیاط لازم</div> -->
-                        <div id="negligence-tile" class="sub-tiles">
+                        <div id="negligence-tile" class="sub-tiles sub-tile-green">
                            
                         </div>
                     </div>
@@ -610,7 +698,7 @@
                     <div class="tile " onclick="toggleSubTiles('carelessness-tile')" style="flex: 1; min-width: 250px;">
                         <div class="tile-title">تاخیر در رویت</div>
                         <!-- <div class="tile-content">عدم توجه و اهمال</div> -->
-                        <div id="carelessness-tile" class="sub-tiles">
+                        <div id="carelessness-tile" class="sub-tiles sub-tile-green">
                             
                         </div>
                     </div>
@@ -618,7 +706,7 @@
                     <div class="tile " onclick="toggleSubTiles('carelessness-tile')" style="flex: 1; min-width: 250px;">
                         <div class="tile-title">تخطی از سرعت مطمئنه</div>
                         <!-- <div class="tile-content">عدم توجه و اهمال</div> -->
-                        <div id="carelessness-tile" class="sub-tiles">
+                        <div id="carelessness-tile" class="sub-tiles sub-tile-green">
                             
                         </div>
                     </div>
@@ -626,7 +714,7 @@
                     <div class="tile " onclick="toggleSubTiles('carelessness-tile')" style="flex: 1; min-width: 250px;">
                         <div class="tile-title">فرار از تصادف</div>
                         <!-- <div class="tile-content">عدم توجه و اهمال</div> -->
-                        <div id="carelessness-tile" class="sub-tiles">
+                        <div id="carelessness-tile" class="sub-tiles sub-tile-green">
                             
                         </div>
                     </div>
@@ -636,7 +724,7 @@
 
         <!-- علل قضایی Section -->
         <div class="section">
-            <div class="tile " onclick="toggleSection('space-section')">
+            <div class="tile tile-purple" onclick="toggleSection('space-section')">
                 علل قضایی
             </div>
             <div id="space-section">
@@ -645,9 +733,9 @@
                         <div class="tile-title">علل مخففه</div>
                         <!-- <div class="tile-content">عوامل متنوع تصادف</div> -->
                         <div id="various-cause-tile" class="sub-tiles">
-                            <div class="sub-tile" >اعلام به موقع خبر به عوامل انتظامی</div>
-                            <div class="sub-tile" >مساعدت و تسکین آلام مصدومین</div>
-                            <div class="sub-tile" >مساعدت و تسکین آلام مصدوم</div>
+                            <div class="sub-tile sub-tile-purple" >اعلام به موقع خبر به عوامل انتظامی</div>
+                            <div class="sub-tile sub-tile-purple" >مساعدت و تسکین آلام مصدومین</div>
+                            <div class="sub-tile sub-tile-purple" >مساعدت و تسکین آلام مصدوم</div>
                             
                         </div>
                     </div>
@@ -656,12 +744,12 @@
                         <div class="tile-title">علل مشدده</div>
                         <!-- <div class="tile-content">مستی<br>نداشتن پروانه<br>کار نیاختن رسانه لا</div> -->
                         <div id="defined-cause-tile" class="sub-tiles">
-                            <div class="sub-tile" >رانندگی در حالت مستی</div>
-                            <div class="sub-tile" >نداشتن پروانه</div>
-                            <div class="sub-tile" >کارانداختن وسیله با عیب و نقص فنی</div>
-                            <div class="sub-tile" >تجاوز از سرعت مقرره</div>
-                            <div class="sub-tile" >عبور از محل ممنوع</div>
-                            <div class="sub-tile" >برخورد با عابر پیاده</div>
+                            <div class="sub-tile sub-tile-purple" >رانندگی در حالت مستی</div>
+                            <div class="sub-tile sub-tile-purple" >نداشتن پروانه</div>
+                            <div class="sub-tile sub-tile-purple" >کارانداختن وسیله با عیب و نقص فنی</div>
+                            <div class="sub-tile sub-tile-purple" >تجاوز از سرعت مقرره</div>
+                            <div class="sub-tile sub-tile-purple" >عبور از محل ممنوع</div>
+                            <div class="sub-tile sub-tile-purple" >برخورد با عابر پیاده</div>
                         </div>
                     </div>
 
@@ -669,8 +757,8 @@
                         <div class="tile-title"> علل اصلی</div>
                         <!-- <div class="tile-content">مشکلات غیرفنی راننده</div> -->
                         <div id="non-tech-tile" class="sub-tiles">
-                            <div class="sub-tile" >بی احتیاطی</div>
-                            <div class="sub-tile" >بی مبالاتی</div>
+                            <div class="sub-tile sub-tile-purple" >بی احتیاطی</div>
+                            <div class="sub-tile sub-tile-purple" >بی مبالاتی</div>
                             
                         </div>
                     </div>
@@ -714,15 +802,30 @@
                 section.style.display = 'block';
             } else {
                 section.style.display = 'none';
+                
             }
         }
 
         function toggleSubTiles(tileId) {
             event.stopPropagation();
             const subTiles = document.getElementById(tileId);
-            const parentTile = subTiles.parentElement;
+            
+            const allSubTiles = document.querySelectorAll('.sub-tile')
+            allSubTiles.forEach(e =>{
+                const parentTile = e.parentElement;
+                if (e.classList.contains('active')) {
+                e.classList.remove('active');
+                parentTile.classList.remove('expanded');
+            } else {
+                e.classList.add('active');
+                parentTile.classList.add('expanded');
+            }
+
+            })
+            
             
             if (subTiles.classList.contains('active')) {
+                
                 subTiles.classList.remove('active');
                 parentTile.classList.remove('expanded');
             } else {
