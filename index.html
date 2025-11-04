@@ -42,12 +42,21 @@
             margin-bottom: 5px;
         }
 
+        
         .main-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
             max-width: 1400px;
             margin: 0 auto;
+        }
+        
+        .main-container > .section:first-child {
+            grid-column: 1 / -2;
+        }
+
+        .main-container > header {
+            grid-column: 1 / -1;
         }
 
         .section {
@@ -260,8 +269,8 @@
   background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Deep navy example */
   padding: 24px 40px;
   display: flex;
-  justify-content: right;
-  align-items: right;
+  justify-content: center;
+  align-items: center;
   position: relative;
   overflow: hidden;
 }
@@ -303,8 +312,8 @@
 
 /* Logo */
 .header-logo {
-  height: 100px;
-  width: auto;
+  height: 10em;
+  width: 8.5em;
 }
 
 /* Text */
@@ -312,6 +321,7 @@
   display: flex;
   flex-direction: column;
   text-align: right;
+  margin: 2em 2em;
 }
 
 .header-title {
@@ -331,10 +341,10 @@
 @media (max-width: 600px) {
   .header-content { 
     flex-direction: column;
-    text-align: center;
+    align-items: center;
   }
   .header-logo {
-    height: 60px;
+    height: 8em;
   }
   .header-text{
     text-align: center;
@@ -345,25 +355,28 @@
 
 </head>
 <body>
-    <header class="header">
+    
+
+
+    <div class="main-container">
+
+        <header class="header">
         <div class="header-content">
             <img src="rahvar.svg" alt="Logo" class="header-logo" />
             <div class="header-text">
                 <h1 class="header-title">علل فنی تصادف</h1>
-                <p class="header-subtitle">اداره تصادفات و مهندسی ترافیک پلیس راهور تهران بزرگ</p>
+                <P class="header-subtitle">پلیس راهور تهران بزرگ</P>
+                <p class="header-subtitle">اداره تصادفات و مهندسی ترافیک </p>
             </div>
         </div>
     </header>
-
-
-    <div class="main-container">
         <!-- Right Section -->
         <div class="section" onclick="toggleSection('original-section')">
             <div class="tile " >
                 علل اولیه قبلی
             </div>
             <div id="original-section">
-                <div style="display: flex; gap: 15px; flex:1; transition: all .3s ease;">
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 15px;">
                     <div class="tile " onclick="toggleSubTiles('govt-tile')" style="flex: 1; min-width: 250px;">
                         <div class="tile-title">دولت (قوه مجریه)</div>
                         <!-- <div class="tile-content">شامل وزارت راه، شهرسازی، کشور و سایر نهادها</div> -->
@@ -577,7 +590,7 @@
     
         <!-- علل اصلی Section -->
         <div class="section">
-            <div class="tile "  onclick="toggleSection(main-cause-section)">
+            <div class="tile "  onclick="toggleSection('main-cause-section')">
                 علل اصلی
             </div>
             <div id="main-cause-section">
@@ -676,6 +689,16 @@
     </div>
 
     <script>
+
+        document.addEventListener("DOMContentLoaded", () => { 
+            const activeElements = ['original-section','space-section','main-cause-section','waste-section'];
+            activeElements.forEach(el =>    {
+                                            elElement=document.getElementById(el); 
+                                            elElement.style.display = 'none' 
+                                        }); 
+                                    });
+        
+
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
             if (section.style.display === 'none') {
@@ -722,6 +745,8 @@
                 document.getElementById('modal').classList.remove('active');
             }
         }
+
+        
 
         // Close modal with Escape key
         document.addEventListener('keydown', function(event) {
