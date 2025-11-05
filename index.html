@@ -12,6 +12,8 @@
         
     }
 
+    
+
 
         * {
             margin: 0;
@@ -25,9 +27,11 @@
             background: #f5f5f5;
             padding: 20px;
             line-height: 1.8;
+            position: relative; 
+            z-index: 5;
         }
 
-        .header {
+        /* .header {
             background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
             text-align: center;
@@ -35,19 +39,20 @@
             border-radius: 10px;
             margin-bottom: 20px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+        } */
 
         .header h1 {
-            font-size: 1.8em;
+            font-size: 15px;
             margin-bottom: 5px;
         }
 
         
         .main-container {
             display: grid;
+            z-index: 2;
             grid-template-columns: repeat(2, 1fr);
             gap: 24px;
-            max-width: 1400px;
+           
             margin: 0 auto;
         }
         
@@ -64,10 +69,25 @@
         }
 
         .section {
-            /* background: white;
-            border-radius: 10px; */
+            /* background: black; */
+            border-radius: 10px;
+            
             /* padding: 5px; */
             /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
+        }
+
+        .section>.active{
+            display: block;            /* makes it fill width */
+            width: 100%;               /* spans whole container */
+            box-sizing: border-box;    /* ensures padding does not exceed width */
+            border-right: 10px solid #082aeb;
+            border-left: 10px solid #082aeb;
+            border-radius: 10px;
+            padding: 10px 15px;
+            font-weight: 600;
+             background: rgba(0, 0, 0, 0.35);
+            margin-right: 20px;       /* replaces translateX, pushes outward visually */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
         }
 
       
@@ -104,38 +124,38 @@
         }
 
         .tile-light-blue{
-            background: #3498db;
+            background: #187418;
             border-color: #3498db;
              color:white;
         }
 
         .tile-light-blue:hover{
             background: white;
-            border-color: #3498db;
+            border-color: #187418;
              color:black;
         }
 
         .tile-green{
-            background: #082aeb;
+            background: #801111;
             border-color: #082aeb;
              color:white;
         }
 
         .tile-green:hover{
             background: white;
-            border-color: #082aeb;
+            border-color: #801111;
              color:black;
         }
 
         .tile-purple{
-            background: #14b8c4;
+            background: #3913a0;
             border-color: #14b8c4;
              color:white;
         }
 
         .tile-purple:hover{
             background: white;
-            border-color: #14b8c4;
+            border-color: #3913a0;
              color:black;
         }
 
@@ -147,18 +167,22 @@
             margin: 10px 0;
             cursor: pointer;
             transition: all 0.3s ease;
+            padding-right: 20px;
+            /* border-right: 3px solid #3498db; */
+        
         }
+        
 
-        /* .tile:hover {
+        .tile:hover {
             background: #193d8c;
             color: white;
             border-color: #193d8c;
             transform: translateX(-3px);
-        } */
+        }
 
         .tile-title {
             
-            color: #000;
+            color: white;
             margin-bottom: 8px;
             font-size: 1em;
         }
@@ -182,6 +206,13 @@
         }
 
         .sub-tiles.active {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            animation: slideIn 0.3s ease;
+        }
+
+        .tile.active {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
@@ -219,22 +250,22 @@
         }
 
         .sub-tile-light-blue {
-             background: #3498db;
-            border-color: #3498db;
+             background: #187418;
+            border-color: #187418;
              color:white;
             
         }
 
         .sub-tile-green {
-            background: #082aeb;
-            border-color: #082aeb;
+            background: #801111;
+            border-color: #801111;
              color:white;
             
         }
 
         .sub-tile-purple {
-            background: #14b8c4;
-            border-color: #14b8c4;
+            background: #3913a0;
+            border-color: #3913a0;
              color:white;
             
         }
@@ -254,8 +285,8 @@
         .color-purple { background: #f4ecf7; border-color: #95a5a6; }
 
         .expanded {
-            background: white !important;
-            color: #000 !important;
+            /* background: white !important; */
+            color: white !important;
         }
 
         .footer {
@@ -358,7 +389,7 @@
 /* Header Container */
 .header {
   width: 100%;
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Deep navy example */
+  
   padding: 24px 40px;
   display: flex;
   justify-content: center;
@@ -367,28 +398,29 @@
   overflow: hidden;
 }
 
-
-
-
-
-.header::before {
+body::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("accident.jpeg"); /* ← replace with your image */
-  background-size: cover;
+  
+  background-image: url("raees.jpg"); /* ← replace with your image */
   background-position: center;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-size: 100% 100%;
   filter: blur(10px);
-  transform: scale(1.1); /* prevents blur edges */
-  z-index: 0;
+  transform: scale(1.1); 
+  z-index: -1;
+  pointer-events: none;
 }
 
-.header::after {
+body::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.35); /* dark overlay for readability */
-  z-index: 1;
+  pointer-events: none;
+  /* background: rgba(83, 83, 83, 0.35); */
+  z-index: 0;
 }
 
 /* Align content */
@@ -440,6 +472,17 @@
   }
   .header-text{
     text-align: center;
+    font-size: 0.05rem;
+  }
+  body{
+    font-size: 0.5rem;     /* slightly smaller text */
+    line-height: 1.5;      /* tighter spacing */
+    max-width: 100%;        /* avoid full screen wrapping */
+    word-break: keep-all;
+    white-space: normal;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
 }
 
@@ -448,17 +491,17 @@
 </head>
 <body>
     
-
-
     <div class="main-container">
 
-        <header class="header">
+    <header class="header">
         <div class="header-content">
             <img src="rahvar.svg" alt="Logo" class="header-logo" />
             <div class="header-text">
-                <h1 class="header-title">علل فنی تصادف</h1>
-                <h3 class="header-subtitle">پلیس راهور تهران بزرگ</h3>
-                <h3 class="header-subtitle">اداره تصادفات و مهندسی ترافیک </h3>
+                <h1 class="header-title">علل فنی تصادفات</h1>
+                <p class="header-subtitle">پلیس راهور تهران بزرگ</p>
+                <p class="header-subtitle">اداره تصادفات و مهندسی ترافیک </p>
+                <p class="header-subtitle">آبان 1404</p>
+
             </div>
         </div>
     </header>
@@ -652,28 +695,7 @@
                     </div>
                 </div>
 
-                <!-- <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                    <div class="tile color-danger" onclick="toggleSubTiles('non-moral-tile')" style="flex: 1; min-width: 250px;">
-                        <div class="tile-title">ج) خصوصیات اخلاقی</div>
-                        <div class="tile-content">ویژگی‌های رفتاری راننده</div>
-                        <div id="non-moral-tile" class="sub-tiles">
-                            <div class="sub-tile" onclick="openModal('سرعت غیرمجاز', 'رانندگی با سرعت بیش از حد مجاز و عدم توجه به شرایط جاده')">سرعت غیرمجاز</div>
-                            <div class="sub-tile" onclick="openModal('بی‌احتیاطی', 'عدم رعایت فاصله ایمنی، تغییر خط بی‌محل و رانندگی خطرناک')">بی‌احتیاطی</div>
-                            <div class="sub-tile" onclick="openModal('خستگی', 'خواب‌آلودگی، رانندگی طولانی مدت بدون استراحت و کاهش تمرکز')">خستگی</div>
-                            <div class="sub-tile" onclick="openModal('مستی', 'رانندگی تحت تأثیر الکل، مواد مخدر یا داروهای خواب‌آور')">مستی</div>
-                        </div>
-                    </div>
-
-                    <div class="tile color-purple" onclick="toggleSubTiles('special-features-tile')" style="flex: 1; min-width: 250px;">
-                        <div class="tile-title">د) خصوصیات غیر عادی وغیر طبیعی</div>
-                        <div class="tile-content">شرایط خاص و استثنایی</div>
-                        <div id="special-features-tile" class="sub-tiles">
-                            <div class="sub-tile" onclick="openModal('حوادث طبیعی', 'زلزله، سیل، ریزش کوه و سایر بلایای طبیعی که بر راه‌ها تأثیر می‌گذارند')">حوادث طبیعی</div>
-                            <div class="sub-tile" onclick="openModal('شرایط جوی', 'باران، برف، مه غلیظ، یخبندان و سایر شرایط آب و هوایی نامساعد')">شرایط جوی</div>
-                            <div class="sub-tile" onclick="openModal('موارد غیرمترقبه', 'حضور حیوانات در جاده، افتادن اشیاء، تصادفات زنجیره‌ای و حوادث پیش‌بینی نشده')">موارد غیرمترقبه</div>
-                        </div>
-                    </div>
-                </div> -->
+                
             </div>
         </div>
     
@@ -766,9 +788,7 @@
             </div>
         </div>
 
-        <div class="footer">
-        <p>تهیه و تدوین: آبان 1404</p>
-    </div>
+        
                 
             </div>
             
@@ -797,12 +817,24 @@
         
 
         function toggleSection(sectionId) {
+            const activeElements = ['original-section','space-section','main-cause-section','waste-section'];
+            activeElements.forEach(e =>{
+                if(e !== sectionId){
+                    elElement=document.getElementById(e); 
+                    if (elElement.style.display === 'block') {
+                        elElement.style.display = 'none';
+                        elElement.classList.remove('active')
+                    } 
+                }
+            });
             const section = document.getElementById(sectionId);
             if (section.style.display === 'none') {
                 section.style.display = 'block';
+                section.classList.add('active');
+                
             } else {
                 section.style.display = 'none';
-                
+                section.classList.remove('active');
             }
         }
 
