@@ -23,7 +23,8 @@
 
         body {
             font-family: 'Vazir', Arial, sans-serif;
-            font-weight:bold;
+            font-weight:700;
+            font-size: 1.3em;
             background: #f5f5f5;
             padding: 20px;
             line-height: 1.8;
@@ -42,7 +43,7 @@
         } */
 
         .header h1 {
-            font-size: 15px;
+            font-size: 1.8em !important;
             margin-bottom: 5px;
         }
 
@@ -52,7 +53,6 @@
             z-index: 2;
             grid-template-columns: repeat(2, 1fr);
             gap: 24px;
-           
             margin: 0 auto;
         }
         
@@ -408,7 +408,7 @@ body::before {
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
   background-size: 100% 100%;
-  filter: blur(10px);
+  filter: blur(12px);
   transform: scale(1.1); 
   z-index: -1;
   pointer-events: none;
@@ -436,8 +436,9 @@ body::after {
 
 /* Logo */
 .header-logo {
-  height: 10em;
-  width: 8.5em;
+  height: 5em;
+  width: 4.75em;
+  display: flex;
 }
 
 /* Text */
@@ -449,16 +450,16 @@ body::after {
 }
 
 .header-title {
-  font-size: 1.9rem;
-  font-weight: 600;
-  color: #fff;
+  /* font-size: 2em; */
+  font-weight: 4000;
+  color: #000;
   letter-spacing: 0.5px;
 }
 
 .header-subtitle {
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 300;
+  color: #000;
+  /* font-size: 1.5em; */
+  font-weight: 500;
   margin-top: 4px;
 }
 
@@ -472,10 +473,10 @@ body::after {
   }
   .header-text{
     text-align: center;
-    font-size: 0.05rem;
+    font-size: 0.7rem;
   }
   body{
-    font-size: 0.5rem;     /* slightly smaller text */
+    font-size: 1.2em;     /* slightly smaller text */
     line-height: 1.5;      /* tighter spacing */
     max-width: 100%;        /* avoid full screen wrapping */
     word-break: keep-all;
@@ -485,19 +486,38 @@ body::after {
     text-align: center;
   }
 }
+    .top-left {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .img-container {
+        width: 100%;       /* cover entire width */
+        position: relative; /* so the img can be positioned inside */
+        height: 200px;
+       
+              /* set any height you need */
+}
 
     </style>
 
+
 </head>
 <body>
-    
+    <div class="img-container">
+             <img src="rahvar.svg" alt="Logo" class="header-logo top-left" />
+            </div>
     <div class="main-container">
-
+        
+        
     <header class="header">
         <div class="header-content">
-            <img src="rahvar.svg" alt="Logo" class="header-logo" />
+           
             <div class="header-text">
                 <h1 class="header-title">علل فنی تصادفات</h1>
+                <br>
+                <br>
                 <p class="header-subtitle">پلیس راهور تهران بزرگ</p>
                 <p class="header-subtitle">اداره تصادفات و مهندسی ترافیک </p>
                 <p class="header-subtitle">آبان 1404</p>
