@@ -445,9 +445,11 @@ body::before {
 body::after {
   content: "";
   position: absolute;
+  position: fixed;      /* Change from absolute → fixed prevents shifting and cropping */
+  top: -10vh;  
   inset: 0;
   pointer-events: none;
-  /* background: rgba(90, 87, 87, 0.35); */
+  background: rgba(90, 87, 87, 0.35);
   z-index: -2;
 }
 
