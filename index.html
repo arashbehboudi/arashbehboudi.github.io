@@ -64,9 +64,19 @@
             margin: 0 auto;
         }
         
-        /* .main-container > .section:first-child {
+        .main-container > .section:first-child {
             grid-column: 1 / -1;
-        } */
+        }
+
+        .section.expanded {
+    grid-column: 1 / -1 !important; /* full width when opened */
+}
+
+/* Makes sub-tiles stack vertically if needed */
+.section.expanded > div {
+    width: 100%;
+}
+        
 
         .main-container > header {
             grid-column: 1/ -1;
@@ -873,30 +883,34 @@ body::after {
         
 
         function toggleSection(sectionId) {
-            const activeElements = ['original-section','space-section','main-cause-section','waste-section'];
-            activeElements.forEach(e =>{
-                if(e !== sectionId){
-                    elElement=document.getElementById(e); 
-                    if (elElement.style.display === 'block') {
-                        elElement.style.display = 'none';
-                        elElement.classList.remove('active')
-                    } 
-                }
-            });
-            const section = document.getElementById(sectionId);
-              
+    const activeSections = ['original-section','space-section','main-cause-section','waste-section'];
 
-            if (section.style.display === 'none') {
-                section.style.display = 'block';
-                section.classList.add('active');
-           
-                
-            } else {
-                section.style.display = 'none';
-                section.classList.remove('active');
-                
-            }
+    activeSections.forEach(id => {
+        const content = document.getElementById(id);
+        const parent = content.closest('.section');
+
+        if (id !== sectionId) {
+            // close other sections
+            content.style.display = 'none';
+            content.classList.remove('active'); // KEEPING YOUR BEHAVIOR
+            parent.classList.remove('expanded'); // remove full-width
         }
+    });
+
+    const content = document.getElementById(sectionId);
+    const parent = content.closest('.section');
+    const isOpen = content.style.display === 'block';
+
+    if (isOpen) {
+        content.style.display = 'none';
+        content.classList.remove('active');
+        parent.classList.remove('expanded');
+    } else {
+        content.style.display = 'block';
+        content.classList.add('active');
+        parent.classList.add('expanded'); // ✅ expand only when opened
+    }
+}
 
         function toggleSubTiles(tileId) {
             event.stopPropagation();
