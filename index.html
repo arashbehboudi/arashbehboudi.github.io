@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>اداره تصادفات پلیس راهور تهران بزرگ</title>
@@ -10,7 +12,20 @@
         src: url("fonts/Vazir.eot");
         src: url("fonts/Vazir.woff") format("woff"),
         
-    }
+    }   
+
+.modal-tile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-icon {
+    font-size: 12px;
+    opacity: 0.6;
+    margin-left: 4px;
+    transition: opacity 0.2s ease;
+}
 
     
 
@@ -19,6 +34,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            
         }
 
         body {
@@ -32,15 +48,7 @@
             z-index: 5;
         }
 
-        /* .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            text-align: center;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        } */
+       
 
         .header h1 {
             font-size: 1.8em !important;
@@ -51,14 +59,14 @@
         .main-container {
             display: grid;
             z-index: 2;
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
             margin: 0 auto;
         }
         
-        .main-container > .section:first-child {
+        /* .main-container > .section:first-child {
             grid-column: 1 / -1;
-        }
+        } */
 
         .main-container > header {
             grid-column: 1/ -1;
@@ -77,7 +85,7 @@
         }
 
         .section>.active{
-            display: block;            /* makes it fill width */
+            grid-column: span 2;
             width: 100%;               /* spans whole container */
             box-sizing: border-box;    /* ensures padding does not exceed width */
             border-right: 10px solid #082aeb;
@@ -85,8 +93,7 @@
             border-radius: 10px;
             padding: 10px 15px;
             font-weight: 600;
-             background: rgba(0, 0, 0, 0.35);
-            margin-right: 20px;       /* replaces translateX, pushes outward visually */
+            background: rgba(0, 0, 0, 0.35);
             box-shadow: 0 2px 4px rgba(0,0,0,0.15);
         }
 
@@ -118,7 +125,7 @@
         }
 
         .tile-blue:hover {
-             background: white;
+             /* background: white; */
              border-color: #193d8c;
              color:#000;
         }
@@ -130,7 +137,7 @@
         }
 
         .tile-light-blue:hover{
-            background: white;
+            /* background: white; */
             border-color: #187418;
              color:black;
         }
@@ -142,9 +149,9 @@
         }
 
         .tile-green:hover{
-            background: white;
+            /* background: white; */
             border-color: #801111;
-             color:black;
+            color:black;
         }
 
         .tile-purple{
@@ -154,7 +161,7 @@
         }
 
         .tile-purple:hover{
-            background: white;
+            /* background: white; */
             border-color: #3913a0;
              color:black;
         }
@@ -168,17 +175,17 @@
             cursor: pointer;
             transition: all 0.3s ease;
             padding-right: 20px;
-            /* border-right: 3px solid #3498db; */
-        
         }
         
+       
+        
 
-        .tile:hover {
+        /* .tile:hover {
             background: #193d8c;
             color: white;
             border-color: #193d8c;
             transform: translateX(-3px);
-        }
+        } */
 
         .tile-title {
             
@@ -213,11 +220,16 @@
         }
 
         .tile.active {
-            display: flex;
-            flex-wrap: wrap;
+            /* display: flex; */
+            /* flex-wrap: wrap; */
+            display: grid;
+            grid-column: span 2; 
             gap: 10px;
-            animation: slideIn 0.3s ease;
+            animation: slideIn 0.7s ease;
+            
         }
+
+       
 
         @keyframes slideIn {
             from {
@@ -408,7 +420,7 @@ body::before {
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
   background-size: 100% 100%;
-  filter: blur(12px);
+  filter: blur(5px);
   transform: scale(1.1); 
   z-index: -1;
   pointer-events: none;
@@ -432,6 +444,12 @@ body::after {
   align-items: center;
   gap: 18px;
   padding: 20px 40px;
+  box-sizing: border-box;    /* ensures padding does not exceed width */
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.35);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
 /* Logo */
@@ -467,6 +485,7 @@ body::after {
   .header-content { 
     flex-direction: column;
     align-items: center;
+    
   }
   .header-logo {
     height: 8em;
@@ -474,16 +493,14 @@ body::after {
   .header-text{
     text-align: center;
     font-size: 1.2em;
+    white-space: nowrap;
   }
   body{
     font-size: 1.2em;     /* slightly smaller text */
     line-height: 1.5;      /* tighter spacing */
     max-width: 100%;        /* avoid full screen wrapping */
-    word-break: keep-all;
-    white-space: nowrap;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+ 
+    
     
   }
 }
@@ -530,9 +547,10 @@ body::after {
     </header>
         <!-- Right Section -->
         
-        <div clas="section" >
+        <div class="section" >
             <div class="tile tile-blue " onclick="toggleSection('original-section')">
                 علل اولیه(قبلی)
+                <span class="arrow"></span>
             </div>
             <div id="original-section">
                 <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 15px;">
@@ -599,16 +617,16 @@ body::after {
                     <div class="tile " onclick="toggleSubTiles('road-tile')" style="flex: 1; min-width: 250px;">
                         <div class="tile-title">بررسی وضعیت راه و محیط</div>
                         <div class="sub-tiles" id="road-tile">
-                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('سطح راه', `<ul>
+                            <div class="sub-tile sub-tile-light-blue modal-tile" onclick="openModal('سطح راه', `<ul>
                             <li>لغزندگی راه</li>
                             <li>شیار</li>
                             <li>حفره</li>
                             <li>برآمدگی</li>
                         </ul>`)">
                                 <strong>سطح راه</strong>
-                                
+                                <i class="fa-solid fa-ellipsis modal-icon"></i>
                             </div>
-                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('علائم', `<ul>
+                            <div class="sub-tile sub-tile-light-blue modal-tile" onclick="openModal('علائم', `<ul>
                             <li>پوشیدگی علائم</li>
                             <li>پوشیدگی و شکستگی علائم</li>
                             <li>تاخوردگی علائم</li>
@@ -616,9 +634,9 @@ body::after {
                             
                         </ul>`)">
                                 <strong>علائم</strong>
-                                
+                                <i class="fa-solid fa-ellipsis modal-icon"></i>
                             </div>
-                            <div class="sub-tile sub-tile-light-blue"  onclick="openModal('موانع دید', `<ul>
+                            <div class="sub-tile sub-tile-light-blue modal-tile"  onclick="openModal('موانع دید', `<ul>
                             <li>مانع دید بوسیله سربالائی</li>
                             <li>پیچ با زاویه بی روح</li>
                             <li>تقاطع با زاویه بی روح</li>
@@ -626,9 +644,9 @@ body::after {
                             <li>محدودیت ناشی از باران،برف و مه</li>
                         </ul>`)">
                                 <strong>موانع دید</strong>
-                                
+                                <i class="fa-solid fa-ellipsis modal-icon"></i>
                             </div>
-                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('نور',`<ul>
+                            <div class="sub-tile sub-tile-light-blue modal-tile" onclick="openModal('نور',`<ul>
                             <li>اشعه آفتاب</li>
                             <li>نور منعکس از سطح راه یا وسایل نقلیه</li>
                             <li>نور منعکس از شیشه یا آب (سراب)</li>
@@ -641,14 +659,15 @@ body::after {
                                     <div class="sub-tile" onclick="openModal('جاده', 'کیفیت آسفالت، پیچ‌ها، شیب‌ها و وضعیت فیزیکی مسیر')">جاده</div>
                                     <div class="sub-tile" onclick="openModal('ساختمان', 'ساختمان‌ها و تأسیسات اطراف جاده که بر ایمنی ترافیک تأثیر می‌گذارند')">ساختمان</div>
                                 </div> -->
+                                <i class="fa-solid fa-ellipsis modal-icon"></i>
                             </div>
-                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('ساختمان جاده', `<ul>
+                            <div class="sub-tile sub-tile-light-blue modal-tile" onclick="openModal('ساختمان جاده', `<ul>
                             <li>کم بودن شیب عرضی راه</li>
                             <li>فقدان شانه خاکی مناسب</li>
                             <li>اختلاف سطح آسفالت با شانه خاکی</li>
                         </ul>`)">
                                 <strong>ساختمان جاده</strong>
-                                
+                                <i class="fa-solid fa-ellipsis modal-icon"></i>
                             </div>
                         </div>
                     </div>
@@ -657,7 +676,7 @@ body::after {
                         <div class="tile-title">بررسی وضع راننده و عابر</div>
                         <!-- <div class="tile-content">بررسی وضع راننده و عابر</div> -->
                         <div id="tech-tile" class="sub-tiles">
-                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('نواقص جسمانی', `<ul>
+                            <div class="sub-tile sub-tile-light-blue modal-tile" onclick="openModal('نواقص جسمانی', `<ul>
                             <li>  عدم آشنايى به وسيله نقليه</li>
                             <li> عدم آشنايى به راه</li>
                             <li> عدم آشنايى به مقررات</li>
@@ -666,8 +685,10 @@ body::after {
                             <li>عدم مهارت در كنترل وسيله نقليه</li>
                             <li>عدم مهارت در تشخيص سهم عبور ساير وسائل نقليه</li>
                             <li>عدم توجه به كسب عادات مفيد در رانندگى</li>
-                        </ul>`)">نواقص جسمانی</div>
-                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('خصوصیات فنی', `<ul>
+                        </ul>`)">نواقص جسمانی
+                            <i class="fa-solid fa-ellipsis modal-icon"></i>    
+                    </div>
+                            <div class="sub-tile sub-tile-light-blue modal-tile" onclick="openModal('خصوصیات فنی', `<ul>
                             <li>  نقص بينايى</li>
                             <li> نقص شنوایی</li>
                             <li> نقص در هماهنگی بدن</li>
@@ -675,8 +696,10 @@ body::after {
                             <li>کمی وزن</li>
                             <li>فقدان دست و پا يا غير قابل استفاده بودن آنها</li>
                             <li>ضعف نیروی بدنی</li>
-                        </ul>`)">خصوصیات فنی</div>
-                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('خصوصیات اخلاقی',`<ul>
+                        </ul>`)">خصوصیات فنی
+                            <i class="fa-solid fa-ellipsis modal-icon"></i>    
+                    </div>
+                            <div class="sub-tile sub-tile-light-blue modal-tile" onclick="openModal('خصوصیات اخلاقی',`<ul>
                             <li>بی صبرى، عجله و شتاب بى مورد</li>
                             <li>شيرينكارى</li>
                             <li>بى اعتنايى، تنبلى، بى تفاوتى</li>
@@ -684,15 +707,19 @@ body::after {
                             <li>اتكا به ديكران</li>
                             <li>عدم توجه به جلو و اطراف </li>
                             
-                        </ul>`)">خصوصیات اخلاقی</div>
-                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('خلاصی خصوصیات غیر عادی و غیرطبیعی', `<ul>
+                        </ul>`)">خصوصیات اخلاقی
+                        <i class="fa-solid fa-ellipsis modal-icon"></i>    
+                    </div>
+                            <div class="sub-tile sub-tile-light-blue modal-tile" onclick="openModal('خلاصی خصوصیات غیر عادی و غیرطبیعی', `<ul>
                             <li>استعمال مشروبات الکلی، موادمخدر و دارو</li>
                             <li>بیماریهای ناگهانی</li>
                             <li>خستگی و خواب آلودگی</li>
                             <li>سایر عوارض</li>
                             
                             
-                        </ul>`)">خصوصیات غیر عادی و غیرطبیعی</div>
+                        </ul>`)">خصوصیات غیر عادی و غیرطبیعی
+                            <i class="fa-solid fa-ellipsis modal-icon"></i>    
+                    </div>
                         </div>
                     </div>
 
@@ -700,20 +727,25 @@ body::after {
                         <div class="tile-title">بررسی وضع وسایل نقلیه</div>
                         <!-- <div class="tile-content">مشخصات فنی وسیله نقلیه</div> -->
                         <div id="moral-tile" class="sub-tiles">
-                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('نواقص فنی', `<ul>
+                            <div class="sub-tile sub-tile-light-blue modal-tile" onclick="openModal('نواقص فنی', `<ul>
                             <li>صاف بودن لاستیک</li>
                             <li>نقص سیستم روشنایی</li>
                             <li>خلاصی فرمان</li>
                             <li>و...</li>
                             
-                        </ul>`)">نواقص فنی</div>
-                            <div class="sub-tile sub-tile-light-blue" onclick="openModal('نواقص غیرفنی', `<ul>
+                        </ul>`)">نواقص فنی
+                            <i class="fa-solid fa-ellipsis modal-icon"></i>
+                            </div>
+                            
+                            <div class="sub-tile sub-tile-light-blue modal-tile" onclick="openModal('نواقص غیرفنی', `<ul>
                             <li>بيش از اندازه بزرگ بودن وسيله نقليه</li>
                             <li>بيش از اندازه بزرگ بودن محموله</li>
                             <li>زاويه بيروح حاصله از ابعاد بزرگ محموله </li>
                             <li>عدم مهار محموله بطرز صحيح </li>
                             
-                        </ul>`)">نواقص غیرفنی</div>
+                        </ul>`)">نواقص غیرفنی
+                        <i class="fa-solid fa-ellipsis modal-icon"></i>
+                        </div>
                             
                         </div>
                     </div>
@@ -852,13 +884,17 @@ body::after {
                 }
             });
             const section = document.getElementById(sectionId);
+              
+
             if (section.style.display === 'none') {
                 section.style.display = 'block';
                 section.classList.add('active');
+           
                 
             } else {
                 section.style.display = 'none';
                 section.classList.remove('active');
+                
             }
         }
 
