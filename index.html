@@ -46,6 +46,7 @@
             line-height: 1.8;
             position: relative; 
             z-index: 5;
+            overflow: hidden;
         }
 
        
@@ -95,7 +96,7 @@
         }
 
         .section>.active{
-            grid-column: span 2;
+            display: block;
             width: 100%;               /* spans whole container */
             box-sizing: border-box;    /* ensures padding does not exceed width */
             border-right: 10px solid #082aeb;
@@ -104,7 +105,7 @@
             padding: 10px 15px;
             font-weight: 600;
             background: rgba(0, 0, 0, 0.35);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            box-shadow: 10px 10px 10px rgba(0,0,0,0.15);
             margin-right: 25px;
         }
 
@@ -426,7 +427,7 @@ body::before {
   position: absolute;
   inset: 0;
   
-  background-image: url("raees.jpg"); /* ← replace with your image */
+  background-image: url("tasadof.jpg"); /* ← replace with your image */
   background-position: center;
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
@@ -456,7 +457,7 @@ body::after {
   gap: 18px;
   padding: 20px 40px;
   box-sizing: border-box;    /* ensures padding does not exceed width */
-    border-radius: 10px;
+border-radius: 10px;
     padding: 10px 15px;
     font-weight: 600;
     background: rgba(0, 0, 0, 0.35);
@@ -493,8 +494,9 @@ body::after {
 }
 
 @media (max-width: 600px) {
-  .header-content { 
-    flex-direction: column;
+  .header-content {
+    display: block; 
+    
     align-items: center;
     
   }
